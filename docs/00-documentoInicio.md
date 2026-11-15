@@ -18,7 +18,7 @@
 
 miCita
 
-Plataforma para pequeños empresarios la cual ayuda a gestionar tanto las citas de una empresa como sus reservas para la prestacion de sus servicios.
+Plataforma pensada para pequeños empresarios que permite gestionar en un único lugar las citas de su negocio y las reservas de sus servicios.
 
 ## 3. Qué quiero hacer
 
@@ -51,14 +51,14 @@ Se desarrolla con detalle en [`01-analisis.md`](01-analisis.md), apartado 2 (Nec
 **Quién lo usa**
 
 - **Autónomos que trabajan solos** (manicura, limpiezas a domicilio, fisioterapia, clases particulares, consultoría…): gestionan su propia agenda, citas y disponibilidad sin depender de llamadas ni WhatsApp.
-- **Pequeños empresarios con poco personal** (unos 2 a 5 trabajadores): el empresario controla los horarios de cada trabajador y decide cómo se reparten las citas entre ellos.
+- **Pequeños empresarios con poco personal** (unas 2 a 5 personas trabajando, contando al empresario: entre 3 y 6 en total): el empresario controla los horarios de cada trabajador y decide cómo se reparten las citas entre ellos.
 
 **Contexto de uso**
 
 Es un uso profesional y comercial dentro de su negocio. El empresario define sus horarios de trabajo, bloques, descansos y días de disponibilidad. A partir de ahí:
 
 - El **cliente** consulta la disponibilidad y reserva una cita. Puede elegir a un trabajador concreto o dejar que el sistema asigne uno.
-- Si el cliente **no elige trabajador**, el empresario (o el propio trabajador) asigna la cita a quien tenga hueco.
+- Si el cliente **no elige trabajador**, el sistema asigna la cita a quien tenga hueco; el empresario puede reasignarla después desde su panel.
 - Si un trabajador ya tiene su cupo lleno ese día u horario, **no se muestra como disponible** para el cliente. Así el trabajo se reparte entre el equipo y no se acumulan todas las citas con una sola persona.
 
 El cliente usa la plataforma como canal de reserva de servicios; el empresario la usa para organizar su tiempo y poner límites a su disponibilidad.
@@ -71,10 +71,10 @@ Más adelante se podría expandir a otros tipos de usuarios, como redes de profe
 
 | # | Funcionalidad | ¿Imprescindible? (sí / no) |
 |---|---|---|
-| 1 | Configuración del calendario del empresario: horarios de trabajo, bloques, descansos, días festivos y límite diario de citas | sí |
+| 1 | Configuración del calendario del empresario: horarios de trabajo, bloques, descansos, días no laborables y límite diario de citas | sí |
 | 2 | Gestión de citas: crear, editar y cancelar citas desde el panel del empresario | sí |
 | 3 | Página pública de disponibilidad: el cliente consulta horarios libres y reserva una cita | sí |
-| 4 | Distribución de citas entre trabajadores: si el cliente no elige a alguien específico, el sistema asigna la cita a quien tenga hueco y no muestra como disponible a quien ya está lleno | sí |
+| 4 | Asignación automática de citas entre trabajadores: si el cliente no elige a alguien específico, el sistema asigna la cita a quien tenga hueco y no muestra como disponible a quien ya está lleno | sí |
 | 5 | Historial de clientes y servicios prestados | no |
 | 6 | Recordatorios automáticos de cita (por ejemplo, por correo o SMS) | no |
 
@@ -85,7 +85,7 @@ Más adelante se podría expandir a otros tipos de usuarios, como redes de profe
 | HTML | Estructura de las páginas web | media |
 | CSS | Diseño y maquetación de la interfaz | media |
 | JavaScript | Interactividad en el cliente (calendario, formularios, reserva) | media |
-| Java | Lógica del servidor y backend de la aplicación | media |
+| Java 21 | Lógica del servidor y backend de la aplicación | media |
 | Spring Boot | Framework Java para crear la API y servicios del backend | nada |
 | SQL (MySQL / PostgreSQL) | Base de datos para usuarios, citas, trabajadores y disponibilidad | media |
 | Git y GitHub | Control de versiones y repositorio del proyecto | media |
@@ -108,8 +108,8 @@ Más adelante se podría expandir a otros tipos de usuarios, como redes de profe
 **Riesgos**
 
 - **Tiempo:** compaginar el desarrollo del proyecto con las asignaturas de 2.º de DAW y las entregas del tutor (H1, H2, H3) puede ajustar mucho los plazos, especialmente si surgen imprevistos en alguna parte del proyecto.
-- **Tecnología:** Spring Boot y SQL (MySQL/PostgreSQL) los marcas con nivel "nada", por lo que hay una curva de aprendizaje inicial que puede retrasar el backend y la base de datos.
-- **Alcance:** la lógica de distribución automática de citas entre varios trabajadores y el control de disponibilidad (bloques, descansos, límite diario) puede resultar más compleja de lo que parece al principio.
+- **Tecnología:** Spring Boot y el despliegue en la nube son los que marcas con nivel "nada" (la base de datos SQL la tienes en "media"), así que la curva de aprendizaje inicial puede retrasar el backend y el despliegue.
+- **Alcance:** la lógica de asignación automática de citas entre varios trabajadores y el control de disponibilidad (bloques, descansos, límite diario) puede resultar más compleja de lo que parece al principio.
 - **Despliegue:** nunca he desplegado una aplicación en un servidor en la nube, por lo que esa parte puede generar imprevistos técnicos cerca de las entregas.
 
 **Dudas iniciales**
