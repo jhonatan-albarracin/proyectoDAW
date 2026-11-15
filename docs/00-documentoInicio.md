@@ -69,8 +69,6 @@ Más adelante se podría expandir a otros tipos de usuarios, como redes de profe
 
 ## 6. Funcionalidades principales
 
-*Lista de 3 a 6 cosas que debe hacer. Marca cuáles son imprescindibles para una **primera versión mínima** (la que quieres tener funcionando antes del 31-mar).*
-
 | # | Funcionalidad | ¿Imprescindible? (sí / no) |
 |---|---|---|
 | 1 | Configuración del calendario del empresario: horarios de trabajo, bloques, descansos, días festivos y límite diario de citas | sí |
@@ -81,8 +79,6 @@ Más adelante se podría expandir a otros tipos de usuarios, como redes de profe
 | 6 | Recordatorios automáticos de cita (por ejemplo, por correo o SMS) | no |
 
 ## 7. Tecnologías previstas
-
-*Lenguajes, frameworks, base de datos, despliegue... Y cuáles ya conoces y cuáles tendrás que aprender.*
 
 | Tecnología | Para qué | Nivel actual (nada / media / bien) |
 |---|---|---|
@@ -96,8 +92,6 @@ Más adelante se podría expandir a otros tipos de usuarios, como redes de profe
 | Despliegue (servidor en la nube o similar) | Publicar la aplicación para que esté accesible por internet | nada |
 
 ## 8. Dónde se integra con los módulos de 2.º
-
-*Marca los módulos de 2.º cuyos contenidos usarás de forma real en el proyecto (debe haber **al menos tres**).*
 
 - [x] Desarrollo web en entorno cliente (0612): HTML, CSS y JavaScript para la interfaz, el calendario y la reserva desde el navegador.
 - [x] Desarrollo web en entorno servidor (0613): Java y Spring Boot para la API, la lógica de citas y la conexión con la base de datos.
@@ -131,8 +125,6 @@ Espero aprender a desarrollar una aplicación web completa con Java y Spring Boo
 ---
 
 ## Aprobación del tutor
-
-*Esta parte la rellena el tutor.*
 
 | Criterio mínimo | Cumple |
 |---|---|
