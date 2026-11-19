@@ -8,14 +8,14 @@
 
 El sector de referencia son los **servicios con cita previa** gestionados por autónomos y pequeñas empresas (belleza y bienestar, fisioterapia, limpiezas a domicilio, clases particulares, consultoría…), así como los proveedores de software que les dan soporte. A continuación se clasifican 6 empresas representativas por sus características organizativas y el producto o servicio que ofrecen.
 
-| # | Empresa | Tipo organizativo | Tamaño | Producto o servicio | Modelo de negocio |
-|:---:|---|---|---|---|---|
-| E1 | **Setmore** | Empresa tecnológica (SaaS) | Internacional, mediana | Software de programación de citas online con versión gratuita y planes de pago | Suscripción (freemium) |
-| E2 | **Square Appointments** | Gran corporación tecnológica | Multinacional | Sistema de reservas todo en uno (agenda, pagos, recordatorios, TPV) | Suscripción + comisión por transacción |
-| E3 | **SimplyBook.me** | Empresa tecnológica (SaaS) | Internacional, pequeña/mediana | Software de reservas online para negocios de servicios | Suscripción por niveles |
-| E4 | **Eskedula** | PYME española de software | Pequeña | Gestión de reservas, agenda, clientes, TPV y facturación para belleza y bienestar | Suscripción / licencia |
-| E5 | **Booksy** | Empresa tecnológica (SaaS / marketplace) | Internacional | Marketplace y software de reservas para belleza, bienestar y salud | Suscripción + comisión por reserva |
-| E6 | **Fresha** | Empresa tecnológica (SaaS / marketplace) | Internacional | Software gratuito de reservas y pagos para belleza y bienestar, monetizado mediante comisiones y funciones premium | Comisión por transacción + suscripción premium |
+| # | Empresa | Tipo organizativo y tamaño | Producto o servicio | Modelo de negocio | Enlace y fecha de acceso | Estado (`leído` / `sin leer`) |
+|:---:|---|---|---|---|---|---|
+| E1 | **Setmore** | Empresa tecnológica (SaaS) · internacional, mediana | Software de programación de citas online con versión gratuita y planes de pago | Suscripción (freemium) | [setmore.com](https://www.setmore.com/) · 2026-11-15 | `leído` |
+| E2 | **Square Appointments** | Gran corporación tecnológica · multinacional | Sistema de reservas todo en uno (agenda, pagos, recordatorios, TPV) | Suscripción + comisión por transacción | [squareup.com/us/en/appointments](https://squareup.com/us/en/appointments) · 2026-11-15 | `leído` |
+| E3 | **SimplyBook.me** | Empresa tecnológica (SaaS) · internacional, pequeña/mediana | Software de reservas online para negocios de servicios | Suscripción por niveles | [simplybook.me](https://simplybook.me/) · 2026-11-15 | `leído` |
+| E4 | **Eskedula** | PYME española de software · pequeña | Gestión de reservas, agenda, clientes, TPV y facturación para belleza y bienestar | Suscripción / licencia | [eskedula.es](https://www.eskedula.es/) · 2026-11-15 | `leído` |
+| E5 | **Booksy** | Empresa tecnológica (SaaS / marketplace) · internacional | Marketplace y software de reservas para belleza, bienestar y salud | Suscripción + comisión por reserva | [booksy.com/biz](https://booksy.com/biz/en-us) · 2026-11-15 | `leído` |
+| E6 | **Fresha** | Empresa tecnológica (SaaS / marketplace) · internacional | Software gratuito de reservas y pagos para belleza y bienestar, monetizado mediante comisiones y funciones premium | Comisión por transacción + suscripción premium | [fresha.com/for-business](https://www.fresha.com/for-business) · 2026-11-15 | `leído` |
 
 ### 1.2 Empresa tipo (modelo organizativo habitual del sector)
 
@@ -78,8 +78,8 @@ miCita no pretende cubrir todo ese mercado, sino un segmento concreto: el peque�
 
 | # | Fuente | Tipo | Fecha de acceso | Fiabilidad |
 |:---:|---|---|---|---|
-| F1 | Ministerio de Trabajo y Economía Social, Estadística de autónomos, abril 2026 (PDF) | Dato oficial primario | 15-nov-2026 | Alta (organismo público) |
-| F2 | UPTA, "Evolución del trabajo autónomo en España durante el primer semestre de 2026" | Informe de organización empresarial representativa | 15-nov-2026 | Alta |
+| F1 | Ministerio de Trabajo y Economía Social, [Estadística de autónomos, abril 2026 (PDF)](https://www.mites.gob.es/estadisticas/AUT/AUT_04_2026.pdf) | Dato oficial primario | 2026-11-19 | Alta (organismo público) |
+| F2 | UPTA, ["Evolución del trabajo autónomo en España durante el primer semestre de 2026"](https://upta.es/upta-analiza-la-evolucion-del-trabajo-autonomo-en-espana-durante-el-primer-semestre-de-2026/) | Informe de organización empresarial representativa | 2026-11-19 | Alta |
 | F3 | UPTA, "Estudio de racionalización y tiempos de trabajo del autónomo" (2021) | Estudio sectorial | 15-nov-2026 | Alta |
 | F4 | Fortune Business Insights, "Appointment Scheduling Software Market" | Informe de mercado | 15-nov-2026 | Media (proyección de mercado privada) |
 | F5 | Experiencia directa (casos familiares y observación en el entorno) | Experiencia propia | 15-nov-2026 | Media (fuente subjetiva, complementaria a los datos oficiales) |
