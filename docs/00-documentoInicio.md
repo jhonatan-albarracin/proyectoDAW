@@ -10,7 +10,7 @@
 |---|---|
 | **Nombre** (real o alias, como prefieras) | Jhonatan Stiven Albarracin Agudelo |
 | **Usuario de GitHub** | jhonatan-albarracin |
-| **Repositorio del proyecto** | [github.com/jhonatan-albarracin/proyectoDWES](https://github.com/jhonatan-albarracin/proyectoDWES) |
+| **Repositorio del proyecto** | [github.com/jhonatan-albarracin/proyectoDAW](https://github.com/jhonatan-albarracin/proyectoDAW) |
 | **Ciclo y curso** | DAW, 2.º · curso 2026-27 |
 | **Fecha** | 2026-11-12 |
 

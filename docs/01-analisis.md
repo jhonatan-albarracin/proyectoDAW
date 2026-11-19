@@ -279,7 +279,7 @@ El proyecto lo desarrolla **una sola persona**, con el **tutor** como revisor y 
 
 ### 7.4 Seguimiento
 
-El trabajo se organiza en el **tablero de GitHub Projects** del repositorio [github.com/jhonatan-albarracin/proyectoDWES](https://github.com/jhonatan-albarracin/proyectoDWES), con columnas *Pendiente → En curso → En revisión → Hecho*. Cada tarea se vincula a la **issue** correspondiente y a su rama, y se cierra mediante *pull request* revisado antes de fusionar en `main`. El detalle del cronograma con sus dependencias y el camino crítico se desarrolla en [`03-planificacion.md`](03-planificacion.md).
+El trabajo se organiza en el **tablero de GitHub Projects** del repositorio [github.com/jhonatan-albarracin/proyectoDAW](https://github.com/jhonatan-albarracin/proyectoDAW), con columnas *Pendiente → En curso → En revisión → Hecho*. Cada tarea se vincula a la **issue** correspondiente y a su rama, y se cierra mediante *pull request* revisado antes de fusionar en `main`. El detalle del cronograma con sus dependencias y el camino crítico se desarrolla en [`03-planificacion.md`](03-planificacion.md).
 
 ## 8. Glosario
 
