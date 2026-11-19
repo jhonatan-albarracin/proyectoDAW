@@ -1,6 +1,6 @@
 # 01 · Análisis y documentación inicial (RA1)
 
-> **Entrega: H1, 26-nov-2026.** Análisis y documentación inicial del proyecto **miCita** (RA1). El criterio de evaluación que evidencia cada apartado se indica entre paréntesis en su título.
+> **Plantilla.** Se entrega como **H1 el 26-nov-2026**. Cada apartado indica el criterio de evaluación (CE) que evidencia y qué se espera. Borra las notas en cursiva al rellenar.
 
 ## 1. Sector y empresas (CE 1a, 1b)
 
@@ -97,6 +97,7 @@ El núcleo del proyecto es un calendario inteligente y personalizable que permit
 Se elige miCita porque responde directamente al problema identificado en el punto 4 de `00-documentoInicio.md`: los trabajadores por cuenta propia gestionan sus citas de forma manual o dispersa (llamadas, WhatsApp, agenda de papel), lo que les quita tiempo de su actividad, genera solapamientos y ausencias sin aviso, y dificulta poner límites a su disponibilidad. El resultado es un desbalance entre el tiempo de trabajo y el tiempo personal.
 
 Los datos del sector confirman la relevancia del proyecto:
+
 - En España hay **3.463.806 trabajadores autónomos** (MITES, abril 2026), con un crecimiento del **1,25 % interanual**.
 - UPTA sitúa la cifra en **3.490.048 autónomos** en junio de 2026.
 - El mercado mundial de software de programación de citas se prevé que crezca de **635,6 millones de dólares en 2026 a 1.905,90 millones de dólares** (Fortune Business Insights).
@@ -114,6 +115,7 @@ Además, el proyecto parte de la experiencia directa del autor: la gestión manu
 ### Decisión final
 
 Se elige desarrollar **miCita como plataforma web** (HTML, CSS, JavaScript en el cliente; Java con Spring Boot en el servidor; base de datos SQL) porque:
+
 - Es la respuesta más directa al problema de control del tiempo y disponibilidad del autónomo.
 - Se adapta a los usuarios identificados (autónomos solos y pequeños empresarios con poco personal).
 - Permite una primera versión mínima funcional antes del 31-mar-2027 con las 4 funcionalidades imprescindibles definidas en el punto 6 de `00-documentoInicio.md`.
@@ -124,10 +126,10 @@ Este proyecto se plantea como un **encargo simulado**, no parte de una empresa r
 
 ## 4. Requisitos y restricciones (CE 1f)
 
-### 4.1 Requisitos funcionales (RF)
+> **Guía.** Numera los requisitos **funcionales** como **RF-01, RF-02…** (qué hace el sistema) y los **no funcionales** como **RNF-01…** (cómo lo hace: rendimiento, seguridad, usabilidad, disponibilidad, accesibilidad). Las **restricciones** (plazo, presupuesto, tecnología obligatoria, normativa) como **REST-01…**. Cada requisito debe tener **una medida o una prueba**. Si aún no sabes cómo lo probarás, escribe «pendiente» y complétalo antes de H3.
 
-| ID | Requisito | Tipo | Cómo se verifica |
-|:---:|---|:---:|---|
+| ID | Requisito | Tipo (funcional / no funcional / restricción) | Cómo se verifica |
+|---|---|---|---|
 | RF-01 | El empresario debe poder configurar sus horarios de trabajo, bloques, descansos y días no laborables por semana. | funcional | El sistema permite definir al menos 5 franjas horarias semanales y las almacena en la base de datos. Se verifica que al cargar el calendario se muestran correctamente. |
 | RF-02 | El empresario debe poder establecer un límite diario de citas. | funcional | Si el límite es 5 citas, al intentar crear la 6ª cita del mismo día el sistema la rechaza y muestra mensaje de "cupo completo". |
 | RF-03 | El empresario debe poder crear, editar y cancelar citas desde el panel del empresario. | funcional | Se puede crear una cita con fecha, hora, cliente y servicio; se visualiza en el calendario; se puede editar y eliminar sin errores. |
@@ -135,25 +137,17 @@ Este proyecto se plantea como un **encargo simulado**, no parte de una empresa r
 | RF-05 | Cuando el cliente no elige un trabajador concreto, el sistema debe asignar la cita a quien tenga hueco y no mostrar como disponible a quien ya esté lleno. | funcional | Si el trabajador A tiene su cupo diario lleno, no aparece en la lista de trabajadores disponibles para ese horario. |
 | RF-06 | El sistema debe permitir consultar el historial de clientes y servicios prestados. | funcional | Al buscar un cliente por nombre o teléfono, el sistema muestra sus citas pasadas y servicios realizados. |
 | RF-07 | El sistema debe enviar recordatorios automáticos de cita con al menos 24 horas de antelación. | funcional | Se configura una cita para mañana; el sistema genera un recordatorio (correo o notificación) 24h antes y queda constancia en el registro de envíos. |
-
-### 4.2 Requisitos no funcionales (RNF)
-
-| ID | Requisito | Tipo | Cómo se verifica |
-|:---:|---|:---:|---|
 | RNF-01 | La API de consulta de disponibilidad debe responder en menos de 2 segundos. | no funcional | Se mide el tiempo de respuesta del endpoint `GET /api/availability` con 10 consultas consecutivas; el promedio debe ser < 2 s. |
 | RNF-02 | La plataforma debe estar disponible el 99 % del tiempo en horario laboral (08:00-20:00). | no funcional | Se monitoriza el tiempo de actividad del servidor durante una semana; el uptime debe ser ≥ 99 %. |
 | RNF-03 | La interfaz debe cumplir con las pautas de accesibilidad WCAG 2.1 nivel AA. | no funcional | Se ejecuta una herramienta de auditoría de accesibilidad (axe o similar) sobre la página pública y el panel del empresario; no debe haber errores críticos. |
 | RNF-04 | Las contraseñas de los empresarios deben almacenarse con hash y sal, nunca en texto plano ni cifradas de forma reversible. | no funcional | Se inspecciona la base de datos y se verifica que la columna de contraseña contiene un hash con sal (BCrypt) y no la contraseña original. |
-
-### 4.3 Restricciones (REST)
-
-| ID | Requisito | Tipo | Cómo se verifica |
-|:---:|---|:---:|---|
 | REST-01 | La primera versión mínima debe estar funcionando antes del 31-mar-2027. | restricción | Se comprueba la fecha de entrega del despliegue en el servidor y la funcionalidad de las 4 funcionalidades imprescindibles. |
 | REST-02 | No se usarán datos personales reales; solo datos de ejemplo. | restricción | Se revisa que la base de datos de pruebas contenga únicamente nombres, teléfonos y emails ficticios. |
 | REST-03 | El backend debe desarrollarse con Java 21 y Spring Boot, y la base de datos debe ser SQL (MySQL o PostgreSQL). | restricción | Se verifica en el repositorio (pom.xml/build.gradle y configuración de conexión a BD) que se usan las tecnologías indicadas. |
 
-### 4.4 Matriz de trazabilidad
+### Matriz de trazabilidad
+
+> **Guía.** Ejemplo ficticio: *OBJ-01 Gestionar citas → RF-02 Crear una cita → CU-03 → `POST /citas` → prueba P-07.* Cada RF y cada RNF de la tabla anterior debe aparecer aquí.
 
 | Objetivo | Requisito | Caso de uso | Pantalla o endpoint | Prueba o indicador |
 |---|---|---|---|---|
@@ -230,6 +224,7 @@ Como el proyecto se sitúa en Asturias, las ayudas que realmente puede solicitar
 **Requisitos habituales** (según las bases de cada convocatoria): estar dado de alta en el censo de Hacienda y en el IAE, tener domicilio fiscal o establecimiento permanente en Gijón / Asturias, estar al corriente con Hacienda y la Seguridad Social, acreditar una antigüedad mínima de actividad (el impulso empresarial del Principado exige 2 años y constitución posterior al 1-ene-2019), no haber recibido la misma ayuda en los tres ejercicios anteriores y respetar el límite de *minimis* (Reglamento UE 2023/2831).
 
 **Observaciones relevantes para miCita:**
+
 - La ayuda del Principado **excluye expresamente el material informático y los teléfonos móviles**, y solo financia obras, maquinaria, instalaciones y mobiliario nuevos: no serviría para contratar el desarrollo de una web o una app.
 - La Línea II de Gijón Impulsa (Innovación Abierta) es la que mejor encaja con un proyecto de software, porque financia proyectos de innovación en colaboración con empresas tractoras.
 - A 15-nov-2026 **no hay ninguna convocatoria asturiana abierta** para solicitar individualmente: todas las de 2026 están resueltas o cerradas. Al ser convocatorias anuales, la previsión realista es solicitarlas en 2027.
@@ -290,33 +285,33 @@ El trabajo se organiza en el **tablero de GitHub Projects** del repositorio [git
 
 Estos son los términos que aparecen en todos los documentos del proyecto. Se usa **siempre** la columna «Término» y nunca los sinónimos de la última columna, para que el mismo concepto se llame igual en el análisis, el diseño, el código y la memoria.
 
-La documentación se redacta en español, pero el código (Java, Spring Boot y SQL) se escribe en inglés. Para que no se mezclen ambos idiomas, la columna **«Nombre en el código»** fija la traducción exacta de cada término: es el nombre que se usará en las clases, las tablas y los endpoints.
+La documentación se redacta en español, pero el código (Java, Spring Boot y SQL) se escribe en inglés. Para que no se mezclen ambos idiomas, se fija la traducción exacta de cada término: es el nombre que se usará en las clases, las tablas y los endpoints.
 
-| Término | Definición | Nombre en el código | Sinónimos que NO uso |
-|---|---|---|---|
-| **Cita** | Encuentro acordado entre un cliente y un trabajador para prestar un servicio en una fecha y hora concretas. Es la unidad que se guarda en la base de datos. | `Appointment` | turno, *appointment event*, evento |
-| **Reserva** | Acción por la que un cliente fija una cita desde la página pública. La reserva crea la cita; por eso el resultado se llama cita y el proceso, reserva. | `Booking` | solicitud de cita |
-| **Calendario** | Configuración de la jornada del negocio y de cada trabajador: franjas horarias, descansos, días no laborables y cupo diario. Es el núcleo de miCita. | `Schedule` (evita `Calendar`: ya existe en `java.util`) | *calendar* |
-| **Disponibilidad** | Conjunto de franjas en las que el empresario permite reservas, ya descontadas las citas ocupadas, los descansos y los días no laborables. | `Availability` | huecos, agenda libre, *slots* |
-| **Franja horaria (bloque)** | Intervalo con hora de inicio y hora de fin dentro de un día concreto (por ejemplo, 09:00–14:00). Es la pieza con la que se construye el calendario. | `TimeSlot` | *slot*, tramo, hueco horario |
-| **Descanso** | Intervalo de la jornada que no admite reservas (comida, pausa entre clientes). Se configura como parte del calendario. | `Break` | pausa, *break time* |
-| **Día no laborable** | Día completo en el que el negocio o un trabajador no atiende (por ejemplo, un festivo local, vacaciones o un cierre puntual). Se excluye de la disponibilidad. | `NonWorkingDay` | día libre, *holiday* |
-| **Límite diario de citas (cupo)** | Número máximo de citas que un trabajador acepta en un mismo día. Cuando se alcanza, ese trabajador deja de mostrarse como disponible. | `DailyLimit` | tope, máximo, *threshold* |
-| **Servicio** | Prestación que ofrece el negocio (manicura, limpieza a domicilio, fisioterapia, clase particular…), con una duración y, opcionalmente, un precio. | `ServiceOffering` (no `Service`: choca con la anotación `@Service` de Spring) | producto, artículo, *item* |
-| **Trabajador** | Persona del negocio que presta los servicios y tiene su propio calendario y su propio cupo. El empresario también puede ser trabajador. | `Worker` | recurso, *staff*, *employee* |
-| **Empresario** | Usuario con cuenta que configura el negocio, los servicios, los horarios de los trabajadores y las citas. Es el cliente de miCita. | `Owner` | administrador, dueño, *business owner* |
-| **Negocio** | Cuenta que agrupa a un empresario, sus trabajadores, sus servicios y su calendario. Todo dato del sistema pertenece a un negocio. | `Business` | empresa, cuenta, *tenant* |
-| **Cliente** | Persona que reserva y recibe el servicio. En la primera versión no tiene cuenta: reserva desde la página pública con sus datos de contacto. | `Customer` | usuario final, consumidor, *client* |
-| **Asignación automática** | Regla por la que el sistema elige al trabajador que atenderá la cita cuando el cliente no escoge ninguno: se descartan los que no tienen hueco o han agotado su cupo. | `AutoAssignment` | reparto, distribución, *round robin* |
-| **Solapamiento** | Situación en la que dos citas ocupan la misma franja del mismo trabajador. El sistema debe impedirlo al reservar. | `Overlap` | conflicto, choque de horas, *double booking* |
-| **Estado de la cita** | Situación en la que se encuentra una cita: pendiente, confirmada, cancelada o completada. | `AppointmentStatus` (enumeración) | situación, fase, *status* |
-| **Recordatorio** | Aviso automático que se envía al cliente un tiempo determinado antes de la cita para reducir las ausencias. | `Reminder` | notificación, alerta, aviso |
-| **Historial** | Lista de citas y servicios ya realizados por un cliente, consultable por el empresario. | `AppointmentHistory` | registro, historial clínico, *log* |
-| **Ausencia sin aviso** | Cita a la que el cliente no acude y que tampoco cancela con antelación; deja un hueco que no se puede reutilizar. | `NoShow` | plantón, incomparecencia |
-| **Página pública** | Vista accesible sin autenticación donde el cliente consulta la disponibilidad y reserva una cita. | `PublicBookingPage` | *landing*, front, web pública |
-| **Panel del empresario** | Zona autenticada donde el empresario configura el calendario, gestiona citas y consulta el historial. | `OwnerDashboard` | *backoffice*, *dashboard*, administración |
-| **Región de servicio** | Zona geográfica donde se presta el servicio a domicilio. Condiciona qué citas se pueden encadenar según la distancia y el transporte disponible. | `ServiceArea` | zona, área, comarca |
-| **Encargo simulado** | Proyecto académico que se plantea como si fuera un encargo profesional, pero sin empresa real detrás, sin clientes reales y sin datos personales reales. | — (no se modela en el código) | empresa ficticia, cliente ficticio |
+| Término | Definición | Sinónimos que NO uso |
+|---|---|---|
+| **Cita** | Encuentro acordado entre un cliente y un trabajador para prestar un servicio en una fecha y hora concretas. Es la unidad que se guarda en la base de datos. *Nombre en el código:* `Appointment`. | turno, *appointment event*, evento |
+| **Reserva** | Acción por la que un cliente fija una cita desde la página pública. La reserva crea la cita; por eso el resultado se llama cita y el proceso, reserva. *Nombre en el código:* `Booking`. | solicitud de cita |
+| **Calendario** | Configuración de la jornada del negocio y de cada trabajador: franjas horarias, descansos, días no laborables y cupo diario. Es el núcleo de miCita. *Nombre en el código:* `Schedule` (evita `Calendar`: ya existe en `java.util`). | *calendar* |
+| **Disponibilidad** | Conjunto de franjas en las que el empresario permite reservas, ya descontadas las citas ocupadas, los descansos y los días no laborables. *Nombre en el código:* `Availability`. | huecos, agenda libre, *slots* |
+| **Franja horaria (bloque)** | Intervalo con hora de inicio y hora de fin dentro de un día concreto (por ejemplo, 09:00–14:00). Es la pieza con la que se construye el calendario. *Nombre en el código:* `TimeSlot`. | *slot*, tramo, hueco horario |
+| **Descanso** | Intervalo de la jornada que no admite reservas (comida, pausa entre clientes). Se configura como parte del calendario. *Nombre en el código:* `Break`. | pausa, *break time* |
+| **Día no laborable** | Día completo en el que el negocio o un trabajador no atiende (por ejemplo, un festivo local, vacaciones o un cierre puntual). Se excluye de la disponibilidad. *Nombre en el código:* `NonWorkingDay`. | día libre, *holiday* |
+| **Límite diario de citas (cupo)** | Número máximo de citas que un trabajador acepta en un mismo día. Cuando se alcanza, ese trabajador deja de mostrarse como disponible. *Nombre en el código:* `DailyLimit`. | tope, máximo, *threshold* |
+| **Servicio** | Prestación que ofrece el negocio (manicura, limpieza a domicilio, fisioterapia, clase particular…), con una duración y, opcionalmente, un precio. *Nombre en el código:* `ServiceOffering` (no `Service`: choca con la anotación `@Service` de Spring). | producto, artículo, *item* |
+| **Trabajador** | Persona del negocio que presta los servicios y tiene su propio calendario y su propio cupo. El empresario también puede ser trabajador. *Nombre en el código:* `Worker`. | recurso, *staff*, *employee* |
+| **Empresario** | Usuario con cuenta que configura el negocio, los servicios, los horarios de los trabajadores y las citas. Es el cliente de miCita. *Nombre en el código:* `Owner`. | administrador, dueño, *business owner* |
+| **Negocio** | Cuenta que agrupa a un empresario, sus trabajadores, sus servicios y su calendario. Todo dato del sistema pertenece a un negocio. *Nombre en el código:* `Business`. | empresa, cuenta, *tenant* |
+| **Cliente** | Persona que reserva y recibe el servicio. En la primera versión no tiene cuenta: reserva desde la página pública con sus datos de contacto. *Nombre en el código:* `Customer`. | usuario final, consumidor, *client* |
+| **Asignación automática** | Regla por la que el sistema elige al trabajador que atenderá la cita cuando el cliente no escoge ninguno: se descartan los que no tienen hueco o han agotado su cupo. *Nombre en el código:* `AutoAssignment`. | reparto, distribución, *round robin* |
+| **Solapamiento** | Situación en la que dos citas ocupan la misma franja del mismo trabajador. El sistema debe impedirlo al reservar. *Nombre en el código:* `Overlap`. | conflicto, choque de horas, *double booking* |
+| **Estado de la cita** | Situación en la que se encuentra una cita: pendiente, confirmada, cancelada o completada. *Nombre en el código:* `AppointmentStatus` (enumeración). | situación, fase, *status* |
+| **Recordatorio** | Aviso automático que se envía al cliente un tiempo determinado antes de la cita para reducir las ausencias. *Nombre en el código:* `Reminder`. | notificación, alerta, aviso |
+| **Historial** | Lista de citas y servicios ya realizados por un cliente, consultable por el empresario. *Nombre en el código:* `AppointmentHistory`. | registro, historial clínico, *log* |
+| **Ausencia sin aviso** | Cita a la que el cliente no acude y que tampoco cancela con antelación; deja un hueco que no se puede reutilizar. *Nombre en el código:* `NoShow`. | plantón, incomparecencia |
+| **Página pública** | Vista accesible sin autenticación donde el cliente consulta la disponibilidad y reserva una cita. *Nombre en el código:* `PublicBookingPage`. | *landing*, front, web pública |
+| **Panel del empresario** | Zona autenticada donde el empresario configura el calendario, gestiona citas y consulta el historial. *Nombre en el código:* `OwnerDashboard`. | *backoffice*, *dashboard*, administración |
+| **Región de servicio** | Zona geográfica donde se presta el servicio a domicilio. Condiciona qué citas se pueden encadenar según la distancia y el transporte disponible. *Nombre en el código:* `ServiceArea`. | zona, área, comarca |
+| **Encargo simulado** | Proyecto académico que se plantea como si fuera un encargo profesional, pero sin empresa real detrás, sin clientes reales y sin datos personales reales. *Nombre en el código:* — (no se modela). | empresa ficticia, cliente ficticio |
 
 ### 8.1 Convenciones de nombres
 

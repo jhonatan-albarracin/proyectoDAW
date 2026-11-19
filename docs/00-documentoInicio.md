@@ -1,16 +1,16 @@
 # 00 · Documento de inicio del proyecto
 
-> **Plantilla.** Se rellena **en la sesión de Inicio (6-nov-2026)** y se afina hasta el **12-nov**, donde el tutor aprueba la propuesta. Es breve: una página. Si algo no lo sabes todavía, escribe «pendiente» y por qué. Borra las notas en cursiva al rellenar.
+> **Plantilla.** Se rellena durante el **ciclo 1 (16-19 nov)** y el tutor la revisa el jueves 19. Es breve: una página. Si algo no lo sabes todavía, escribe «pendiente» y por qué. Borra las notas en cursiva al rellenar.
 >
-> **No escribas datos personales sensibles** (teléfono, dirección, DNI) ni tu correo personal.
+> **No escribas datos personales sensibles** (teléfono, dirección, DNI) ni tu correo personal. Tu repositorio es público.
 
 ## 1. Datos del alumno/a
 
 | | |
 |---|---|
-| **Nombre y apellidos** | Jhonatan Stiven Albarracin Agudelo |
+| **Nombre** (real o alias, como prefieras) | Jhonatan Stiven Albarracin Agudelo |
 | **Usuario de GitHub** | jhonatan-albarracin |
-| **Repositorio del proyecto** | *[github.com/jhonatan-albarracin/proyectoDWES](https://github.com/jhonatan-albarracin/proyectoDWES)* |
+| **Repositorio del proyecto** | [github.com/jhonatan-albarracin/proyectoDWES](https://github.com/jhonatan-albarracin/proyectoDWES) |
 | **Ciclo y curso** | DAW, 2.º · curso 2026-27 |
 | **Fecha** | 2026-11-12 |
 
@@ -43,8 +43,6 @@ Esta necesidad la he visto y vivido de cerca. Mi madre fue autónoma durante una
 También conozco el caso de mi tía, que hace limpiezas a domicilio en Suiza. Para ella es necesaria la gestión de un calendario adaptado a las regiones geográficas donde presta el servicio, no solo un gestor simple, porque no puede acudir si la distancia entre ubicaciones es elevada y el transporte corre por su cuenta.
 
 Además, he podido observar esta misma situación en muchas otras personas con las que interactúo en el día a día.
-
-Se desarrolla con detalle en [`01-analisis.md`](01-analisis.md), apartado 2 (Necesidades y oportunidades).
 
 ## 5. Para quién
 
@@ -80,23 +78,23 @@ Más adelante se podría expandir a otros tipos de usuarios, como redes de profe
 
 ## 7. Tecnologías previstas
 
-| Tecnología | Para qué | Nivel actual (nada / media / bien) |
+| Tecnología | Para qué | Nivel actual (nada / algo / bien) |
 |---|---|---|
-| HTML | Estructura de las páginas web | media |
-| CSS | Diseño y maquetación de la interfaz | media |
-| JavaScript | Interactividad en el cliente (calendario, formularios, reserva) | media |
-| Java 21 | Lógica del servidor y backend de la aplicación | media |
+| HTML | Estructura de las páginas web | algo |
+| CSS | Diseño y maquetación de la interfaz | algo |
+| JavaScript | Interactividad en el cliente (calendario, formularios, reserva) | algo |
+| Java 21 | Lógica del servidor y backend de la aplicación | algo |
 | Spring Boot | Framework Java para crear la API y servicios del backend | nada |
-| SQL (MySQL / PostgreSQL) | Base de datos para usuarios, citas, trabajadores y disponibilidad | media |
-| Git y GitHub | Control de versiones y repositorio del proyecto | media |
+| SQL (MySQL / PostgreSQL) | Base de datos para usuarios, citas, trabajadores y disponibilidad | algo |
+| Git y GitHub | Control de versiones y repositorio del proyecto | algo |
 | Despliegue (servidor en la nube o similar) | Publicar la aplicación para que esté accesible por internet | nada |
 
 ## 8. Dónde se integra con los módulos de 2.º
 
-- [x] Desarrollo web en entorno cliente (0612): HTML, CSS y JavaScript para la interfaz, el calendario y la reserva desde el navegador.
-- [x] Desarrollo web en entorno servidor (0613): Java y Spring Boot para la API, la lógica de citas y la conexión con la base de datos.
-- [x] Despliegue de aplicaciones web (0614): publicación de la aplicación en un servidor en la nube para que esté accesible por internet.
-- [x] Diseño de interfaces web (0615): maquetación con CSS y diseño de la experiencia de reserva para empresarios y clientes.
+- [x] Desarrollo web en entorno cliente (0612)
+- [x] Desarrollo web en entorno servidor (0613)
+- [x] Despliegue de aplicaciones web (0614)
+- [x] Diseño de interfaces web (0615)
 
 ## 9. Datos y empresas
 
@@ -108,7 +106,7 @@ Más adelante se podría expandir a otros tipos de usuarios, como redes de profe
 **Riesgos**
 
 - **Tiempo:** compaginar el desarrollo del proyecto con las asignaturas de 2.º de DAW y las entregas del tutor (H1, H2, H3) puede ajustar mucho los plazos, especialmente si surgen imprevistos en alguna parte del proyecto.
-- **Tecnología:** Spring Boot y el despliegue en la nube son los que marcas con nivel "nada" (la base de datos SQL la tienes en "media"), así que la curva de aprendizaje inicial puede retrasar el backend y el despliegue.
+- **Tecnología:** Spring Boot y el despliegue en la nube son los que marcas con nivel "nada" (la base de datos SQL la tienes en "algo"), así que la curva de aprendizaje inicial puede retrasar el backend y el despliegue.
 - **Alcance:** la lógica de asignación automática de citas entre varios trabajadores y el control de disponibilidad (bloques, descansos, límite diario) puede resultar más compleja de lo que parece al principio.
 - **Despliegue:** nunca he desplegado una aplicación en un servidor en la nube, por lo que esa parte puede generar imprevistos técnicos cerca de las entregas.
 
@@ -125,6 +123,8 @@ Espero aprender a desarrollar una aplicación web completa con Java y Spring Boo
 ---
 
 ## Aprobación del tutor
+
+*Esta parte la rellena el tutor.*
 
 | Criterio mínimo | Cumple |
 |---|---|
