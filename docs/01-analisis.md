@@ -76,13 +76,13 @@ miCita no pretende cubrir todo ese mercado, sino un segmento concreto: el peque�
 
 ### 2.3 Fuentes consultadas
 
-| # | Fuente | Tipo | Fecha de acceso | Fiabilidad |
-|:---:|---|---|---|---|
-| F1 | Ministerio de Trabajo y Economía Social, [Estadística de autónomos, abril 2026 (PDF)](https://www.mites.gob.es/estadisticas/AUT/AUT_04_2026.pdf) | Dato oficial primario | 2026-11-19 | Alta (organismo público) |
-| F2 | UPTA, ["Evolución del trabajo autónomo en España durante el primer semestre de 2026"](https://upta.es/upta-analiza-la-evolucion-del-trabajo-autonomo-en-espana-durante-el-primer-semestre-de-2026/) | Informe de organización empresarial representativa | 2026-11-19 | Alta |
-| F3 | UPTA, "Estudio de racionalización y tiempos de trabajo del autónomo" (2021) | Estudio sectorial | 15-nov-2026 | Alta |
-| F4 | Fortune Business Insights, "Appointment Scheduling Software Market" | Informe de mercado | 15-nov-2026 | Media (proyección de mercado privada) |
-| F5 | Experiencia directa (casos familiares y observación en el entorno) | Experiencia propia | 15-nov-2026 | Media (fuente subjetiva, complementaria a los datos oficiales) |
+| # | Fuente | Tipo | Fecha de acceso | Fiabilidad | Estado |
+|:---:|---|---|---|---|---|
+| F1 | Ministerio de Trabajo y Economía Social, [Estadística de autónomos, abril 2026 (PDF)](https://www.mites.gob.es/estadisticas/AUT/AUT_04_2026.pdf) | Dato oficial primario | 2026-11-19 | Alta (organismo público) | `leído` |
+| F2 | UPTA, ["Evolución del trabajo autónomo en España durante el primer semestre de 2026"](https://upta.es/upta-analiza-la-evolucion-del-trabajo-autonomo-en-espana-durante-el-primer-semestre-de-2026/) | Informe de organización empresarial representativa | 2026-11-19 | Alta | `leído` |
+| F3 | UPTA, "Estudio de racionalización y tiempos de trabajo del autónomo" (2021) | Estudio sectorial | 2026-11-15 | Alta | `leído` |
+| F4 | Fortune Business Insights, "Appointment Scheduling Software Market" | Informe de mercado | 2026-11-15 | Media (proyección de mercado privada) | `leído` |
+| F5 | Experiencia directa (casos familiares y observación en el entorno) | Experiencia propia | 2026-11-15 | Media (fuente subjetiva, complementaria a los datos oficiales) | no aplica |
 
 ## 3. Tipo de proyecto elegido (CE 1e)
 
@@ -205,7 +205,7 @@ miCita es un proyecto de digitalización para pequeños negocios, por lo que las
 | **Importe** | Hasta **3.000 €** para autónomos y microempresas de 0 a 2 empleados (Segmento III). Hasta 12.000 € (Segmento I) y 6.000 € (Segmento II) para pymes mayores. |
 | **Requisitos** | Ser pyme, microempresa o persona en situación de autoempleo; estar en el censo de empresarios de Hacienda; estar al corriente con Hacienda y Seguridad Social; no ser empresa en crisis; respetar el límite de ayudas de minimis; realizar el test de madurez digital de Acelera pyme. |
 | **Plazo** | Las convocatorias **finalizaron el 31 de octubre de 2025**. A noviembre de 2026 no hay convocatoria abierta; distintas fuentes del sector (por ejemplo, portales de ayudas de Asturias) apuntan a un posible remanente de fondos para el Segmento III, pero no hay un plazo publicado y confirmado, así que se considera cerrado. |
-| **Fuente** | Red.es / Acelera pyme: [acelerapyme.gob.es](https://www.acelerapyme.gob.es) y [kitdigital.red.es](https://www.kitdigital.red.es). Consulta: 15-nov-2026. |
+| **Fuente** | Red.es / Acelera pyme: [acelerapyme.gob.es](https://www.acelerapyme.gob.es) y [kitdigital.red.es](https://www.kitdigital.red.es). Consulta: 2026-11-15. |
 
 Aunque el programa está cerrado a nuevas solicitudes, se incluye porque es la ayuda de referencia para este tipo de proyecto y porque una futura convocatoria con fondos remanentes podría reabrirla.
 
@@ -213,7 +213,7 @@ Aunque el programa está cerrado a nuevas solicitudes, se incluye porque es la a
 
 Como el proyecto se sitúa en Asturias, las ayudas que realmente puede solicitar un autónomo o una microempresa de la zona son las convocadas por el **Ayuntamiento de Gijón / Gijón Impulsa**, el **Principado de Asturias** y las **cámaras de comercio** de Gijón y Avilés. Son convocatorias anuales de concurrencia competitiva, salvo DIGICOM, que es una subvención nominativa.
 
-| Ayuda | Organismo | Importe | Plazo 2026 | Estado a 15-nov-2026 |
+| Ayuda | Organismo | Importe | Plazo 2026 | Estado a 2026-11-15 |
 |:---|:---|:---|:---|:---|
 | **Incentivos Impulsa — Subvenciones al Emprendimiento, Innovación y Crecimiento Empresarial** (Línea I Aceleración de Proyectos, Línea II Innovación Abierta, Línea III Crecimiento Empresarial) | Ayuntamiento de Gijón / Gijón Impulsa | 930.000 € en total. Línea I: hasta 6.000 € (personas físicas) y 2.000–3.000 € (autónomos y empresas). Línea II: hasta 34.000 € (75–80 % del presupuesto elegible). Línea III: 80 % hasta 18.000 € | 1.er plazo: 8–27 abr 2026. 2.º plazo: 1–20 sep 2026 | Cerrado (primer plazo resuelto en junio de 2026; segundo plazo cerrado el 20-sep-2026) |
 | **Ayudas para el impulso empresarial de autónomos, microempresas y pymes** (BDNS 900148) | Principado de Asturias — Consejería de Ciencia, Industria y Empleo | 800.000 €. 50 % de la inversión, máximo 10.000 € por beneficiario; inversión mínima 3.000 € | 2–15 jun 2026 (10 días hábiles desde el BOPA de 1-jun-2026) | Cerrado |
@@ -227,9 +227,9 @@ Como el proyecto se sitúa en Asturias, las ayudas que realmente puede solicitar
 
 - La ayuda del Principado **excluye expresamente el material informático y los teléfonos móviles**, y solo financia obras, maquinaria, instalaciones y mobiliario nuevos: no serviría para contratar el desarrollo de una web o una app.
 - La Línea II de Gijón Impulsa (Innovación Abierta) es la que mejor encaja con un proyecto de software, porque financia proyectos de innovación en colaboración con empresas tractoras.
-- A 15-nov-2026 **no hay ninguna convocatoria asturiana abierta** para solicitar individualmente: todas las de 2026 están resueltas o cerradas. Al ser convocatorias anuales, la previsión realista es solicitarlas en 2027.
+- A 2026-11-15 **no hay ninguna convocatoria asturiana abierta** para solicitar individualmente: todas las de 2026 están resueltas o cerradas. Al ser convocatorias anuales, la previsión realista es solicitarlas en 2027.
 
-**Fuentes:** Ayuntamiento de Gijón, *Gijón impulsa abre el plazo de solicitud de tres líneas de ayuda* (1-sep-2026), [gijon.es](https://www.gijon.es/es/noticias/gijon-impulsa-solicitud-lineas-ayuda-impulsar-proyectos); BOPA de 1-jun-2026, extracto de la convocatoria de impulso empresarial (BDNS 900148), [asturias.es](https://www.asturias.es/bopa/2026/06/01/2026-03264.pdf); Base de Datos Nacional de Subvenciones, fichas 887403, 916451 y 927280, [infosubvenciones.es](https://www.infosubvenciones.es). Consulta: 15-nov-2026.
+**Fuentes:** Ayuntamiento de Gijón, *Gijón impulsa abre el plazo de solicitud de tres líneas de ayuda* (1-sep-2026), [gijon.es](https://www.gijon.es/es/noticias/gijon-impulsa-solicitud-lineas-ayuda-impulsar-proyectos); BOPA de 1-jun-2026, extracto de la convocatoria de impulso empresarial (BDNS 900148), [asturias.es](https://www.asturias.es/bopa/2026/06/01/2026-03264.pdf); Base de Datos Nacional de Subvenciones, fichas 887403, 916451 y 927280, [infosubvenciones.es](https://www.infosubvenciones.es). Consulta: 2026-11-15.
 
 ### 6.3 Línea ICO Empresas y Emprendedores
 
@@ -238,7 +238,7 @@ Como el proyecto se sitúa en Asturias, las ayudas que realmente puede solicitar
 | **Qué es** | Financiación (préstamo) del Instituto de Crédito Oficial para proyectos empresariales, incluida la digitalización. No es una subvención a fondo perdido. |
 | **Requisitos** | Ser autónomo o empresa con domicilio en España, viabilidad del proyecto y cumplimiento de los requisitos de cada línea. |
 | **Plazo** | Las condiciones y disponibilidad cambian por línea; conviene consultar directamente en la web del ICO. |
-| **Fuente** | Instituto de Crédito Oficial: [ico.es](https://www.ico.es). Consulta: 15-nov-2026. |
+| **Fuente** | Instituto de Crédito Oficial: [ico.es](https://www.ico.es). Consulta: 2026-11-15. |
 
 ### 6.4 Conclusión para el proyecto
 

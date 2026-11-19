@@ -18,11 +18,11 @@
 
 | # | Pregunta | Dónde busqué | Fecha |
 |---|---|---|---|
-| P1 | ¿Qué soluciones existen para gestionar citas y reservas online y para qué tipo de negocio? | Webs y catálogos de software de reservas: Setmore, Square Appointments, SimplyBook.me, Eskedula, Booksy y Fresha (apartado 1.1 de `01-analisis.md`) | 15-nov-2026 |
-| P2 | ¿Qué modelos de precio utilizan esas soluciones y cómo ganan dinero? | Páginas de productos y planes de precios de las seis soluciones anteriores | 15-nov-2026 |
-| P3 | ¿Qué necesidades son más demandadas por el colectivo y con qué criterio se priorizan? | MITES (Estadística de autónomos, abril 2026), UPTA (informe del primer semestre de 2026 y estudio de racionalización de tiempos del autónomo, 2021) y experiencia directa (punto 4 de `00-documentoInicio.md`) | 15-nov-2026 |
-| P4 | ¿Qué alternativas no digitales se usan hoy y por qué no resuelven el problema? | Experiencia directa (casos familiares y observación del entorno) recogida en `00-documentoInicio.md` y en el apartado 3 de `01-analisis.md` | 15-nov-2026 |
-| P5 | ¿Existe mercado suficiente para una herramienta de gestión de citas? | Fortune Business Insights, informe *Appointment Scheduling Software Market* (fuente F4 de `01-analisis.md`) | 15-nov-2026 |
+| P1 | ¿Qué soluciones existen para gestionar citas y reservas online y para qué tipo de negocio? | Webs y catálogos de software de reservas: Setmore, Square Appointments, SimplyBook.me, Eskedula, Booksy y Fresha (apartado 1.1 de `01-analisis.md`) | 2026-11-15 |
+| P2 | ¿Qué modelos de precio utilizan esas soluciones y cómo ganan dinero? | Páginas de productos y planes de precios de las seis soluciones anteriores | 2026-11-15 |
+| P3 | ¿Qué necesidades son más demandadas por el colectivo y con qué criterio se priorizan? | MITES (Estadística de autónomos, abril 2026), UPTA (informe del primer semestre de 2026 y estudio de racionalización de tiempos del autónomo, 2021) y experiencia directa (punto 4 de `00-documentoInicio.md`) | 2026-11-15 |
+| P4 | ¿Qué alternativas no digitales se usan hoy y por qué no resuelven el problema? | Experiencia directa (casos familiares y observación del entorno) recogida en `00-documentoInicio.md` y en el apartado 3 de `01-analisis.md` | 2026-11-15 |
+| P5 | ¿Existe mercado suficiente para una herramienta de gestión de citas? | Fortune Business Insights, informe *Appointment Scheduling Software Market* (fuente F4 de `01-analisis.md`) | 2026-11-15 |
 
 ## 2. Soluciones existentes (CE 1a, 1c, 2a)
 
