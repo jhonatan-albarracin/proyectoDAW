@@ -147,16 +147,23 @@ Este proyecto se plantea como un **encargo simulado**, no parte de una empresa r
 
 ### Matriz de trazabilidad
 
-> **Guía.** Ejemplo ficticio: *OBJ-01 Gestionar citas → RF-02 Crear una cita → CU-03 → `POST /citas` → prueba P-07.* Cada RF y cada RNF de la tabla anterior debe aparecer aquí.
+> **Guía.** Ejemplo ficticio: *OBJ-01 Gestionar citas → RF-02 Crear una cita → CU-03 → `POST /citas` → prueba P-07.* Cada RF y cada RNF de la tabla anterior debe aparecer aquí. También se incluyen las REST para que el tutor pueda revisarlas junto a los objetivos.
 
 | Objetivo | Requisito | Caso de uso | Pantalla o endpoint | Prueba o indicador |
 |---|---|---|---|---|
-| OBJ-01 Controlar disponibilidad del empresario | RF-01, RF-02 | CU-01 Configurar calendario | Panel del empresario / `POST /api/schedules` | P-01: se definen 5 franjas horarias y se almacenan |
-| OBJ-02 Gestionar citas | RF-03 | CU-02 Crear/editar/cancelar cita | Panel del empresario / `POST /api/appointments` | P-02: se crea una cita y aparece en el calendario |
-| OBJ-03 Permitir reserva online al cliente | RF-04 | CU-03 Reservar cita | Página pública / `GET /api/availability`, `POST /api/bookings` | P-03: cliente reserva una hora libre y queda registrada |
-| OBJ-04 Distribuir citas entre trabajadores | RF-05 | CU-04 Asignar cita automática | Página pública / `GET /api/workers/available` | P-04: trabajador lleno no aparece como disponible |
-| OBJ-05 Fidelizar clientes | RF-06 | CU-05 Consultar historial | Panel del empresario / `GET /api/customers/{id}/history` | P-05: se muestra el historial de un cliente existente |
-| OBJ-06 Reducir ausencias | RF-07 | CU-06 Enviar recordatorio | Servicio backend / `POST /api/reminders` | P-06: se envía recordatorio 24h antes de la cita |
+| OBJ-01 Controlar la disponibilidad del empresario; se cumple cuando se configuran al menos 5 franjas semanales y un límite diario que el sistema respeta. | RF-01, RF-02 | CU-01 Configurar calendario | Panel del empresario / `POST /api/schedules` | P-01: se definen 5 franjas horarias y se almacenan; se rechaza la cita que supera el límite diario. |
+| OBJ-01 Controlar la disponibilidad del empresario; se cumple cuando se configuran al menos 5 franjas semanales y un límite diario que el sistema respeta. | REST-01 | — | Despliegue / entrega | P-07: la versión mínima con las 4 funcionalidades imprescindibles está desplegada antes del 31-mar-2027. |
+| OBJ-02 Gestionar citas del negocio; se cumple cuando el empresario puede crear, editar y cancelar una cita y verla en el calendario. | RF-03 | CU-02 Crear/editar/cancelar cita | Panel del empresario / `POST /api/appointments` | P-02: se crea, edita y cancela una cita y el calendario se actualiza correctamente. |
+| OBJ-02 Gestionar citas del negocio; se cumple cuando el empresario puede crear, editar y cancelar una cita y verla en el calendario. | RNF-04 | CU-01/CU-02 | Base de datos / autenticación | P-08: la contraseña se guarda como hash BCrypt con sal, no en texto plano. |
+| OBJ-02 Gestionar citas del negocio; se cumple cuando el empresario puede crear, editar y cancelar una cita y verla en el calendario. | REST-02 | — | Base de datos de pruebas | P-09: la base de datos de pruebas contiene solo datos ficticios. |
+| OBJ-02 Gestionar citas del negocio; se cumple cuando el empresario puede crear, editar y cancelar una cita y verla en el calendario. | REST-03 | — | Repositorio / configuración | P-10: el repositorio usa Java 21, Spring Boot y una base de datos SQL. |
+| OBJ-03 Permitir la reserva online al cliente; se cumple cuando un cliente no autenticado reserva una hora libre y la cita queda registrada. | RF-04 | CU-03 Reservar cita | Página pública / `GET /api/availability`, `POST /api/bookings` | P-03: cliente reserva una hora libre y la cita queda registrada en el calendario. |
+| OBJ-03 Permitir la reserva online al cliente; se cumple cuando un cliente no autenticado reserva una hora libre y la cita queda registrada. | RNF-01 | CU-03 Reservar cita | `GET /api/availability` | P-11: 10 consultas consecutivas a disponibilidad responden con promedio < 2 s. |
+| OBJ-03 Permitir la reserva online al cliente; se cumple cuando un cliente no autenticado reserva una hora libre y la cita queda registrada. | RNF-02 | CU-03 Reservar cita | Plataforma desplegada | P-12: se revisa el uptime en una semana de pruebas y se registra el resultado. |
+| OBJ-03 Permitir la reserva online al cliente; se cumple cuando un cliente no autenticado reserva una hora libre y la cita queda registrada. | RNF-03 | CU-03 Reservar cita | Página pública / panel | P-13: auditoría con axe (o similar) sin errores críticos de accesibilidad. |
+| OBJ-04 Distribuir citas entre trabajadores; se cumple cuando un trabajador con cupo lleno no aparece disponible. | RF-05 | CU-04 Asignar cita automática | Página pública / `GET /api/workers/available` | P-04: trabajador con cupo completo no aparece como disponible. |
+| OBJ-05 Consultar el historial de clientes; se cumple cuando se muestra el historial de un cliente existente. | RF-06 | CU-05 Consultar historial | Panel del empresario / `GET /api/customers/{id}/history` | P-05: al buscar un cliente se muestran sus citas pasadas y servicios. |
+| OBJ-06 Reducir ausencias; se cumple cuando se genera un recordatorio 24 h antes de la cita y queda constancia. | RF-07 | CU-06 Enviar recordatorio | Servicio backend / `POST /api/reminders` | P-06: se genera/envía el recordatorio 24 h antes y queda registro del envío. |
 
 ## 5. Obligaciones fiscales, laborales y de prevención (CE 1g)
 
@@ -164,26 +171,26 @@ miCita se plantea como un **encargo simulado** (no parte de una empresa real, no
 
 ### 5.1 Protección de datos personales
 
-| Obligación | Norma | Condiciones de aplicación |
-|:---|:---|:---|
-| Cumplir con la protección de datos de los clientes (nombres, teléfonos, emails, historial de citas) | **Reglamento (UE) 2016/679 (RGPD)** | Si la plataforma trata datos personales de personas físicas (clientes que reservan citas), el empresario es responsable del tratamiento. Debe informar a los usuarios, obtener su consentimiento cuando sea necesario, permitir el ejercicio de derechos (acceso, rectificación, supresión, portabilidad) y notificar brechas de seguridad. |
-| Adaptar la protección de datos al ordenamiento español | **Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD)** | Completa el RGPD en España. Exige llevar un registro de las actividades de tratamiento y designar un delegado de protección de datos cuando se traten datos a gran escala o categorías especiales (art. 34 LOPDGDD). |
-| Informar sobre el uso de cookies y servicios de la sociedad de la información | **Ley 34/2002, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI)** | Al ser una plataforma web accesible al público, debe informar sobre cookies, incluir aviso legal, política de privacidad y política de cookies, y permitir el contacto con el responsable del sitio. |
+| Obligación | Norma | Condiciones de aplicación | Estado |
+|:---|:---|:---|:---|
+| Cumplir con la protección de datos de los clientes (nombres, teléfonos, emails, historial de citas) | [Reglamento (UE) 2016/679 (RGPD)](https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=es) | Si la plataforma trata datos personales de personas físicas (clientes que reservan citas), el empresario es responsable del tratamiento. Debe informar a los usuarios, obtener su consentimiento cuando sea necesario, permitir el ejercicio de derechos (acceso, rectificación, supresión, portabilidad) y notificar brechas de seguridad. | `leído` |
+| Adaptar la protección de datos al ordenamiento español | [Ley Orgánica 3/2018 (LOPDGDD)](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) | Completa el RGPD en España. Exige llevar un registro de las actividades de tratamiento y designar un delegado de protección de datos cuando se traten datos a gran escala o categorías especiales (art. 34 LOPDGDD). | `leído` |
+| Informar sobre el uso de cookies y servicios de la sociedad de la información | [Ley 34/2002 (LSSI)](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) | Al ser una plataforma web accesible al público, debe informar sobre cookies, incluir aviso legal, política de privacidad y política de cookies, y permitir el contacto con el responsable del sitio. | `leído` |
 
 ### 5.2 Obligaciones fiscales (si el proyecto fuera un negocio real)
 
-| Obligación | Norma | Condiciones de aplicación |
-|:---|:---|:---|
-| Alta en el censo de empresarios, profesionales y retenedores | **Real Decreto 1065/2007 (Reglamento general de las actuaciones y los procedimientos de gestión e inspección tributaria)** | El autónomo o empresario debe darse de alta en Hacienda mediante el modelo 036 antes de iniciar la actividad, indicando el epígrafe del IAE correspondiente (por ejemplo, servicios de informática o agenciación). |
-| Declaración y liquidación del IVA | **Ley 37/1992, del Impuesto sobre el Valor Añadido** | Si se cobra por el uso de la plataforma o por reservas, se deben emitir facturas con IVA y presentar liquidaciones periódicas (modelos 303 y 390). |
-| Declaración del IRPF | **Ley 35/2006, del Impuesto sobre la Renta de las Personas Físicas** y **Real Decreto 439/2007 (Reglamento del IRPF)** | Los ingresos obtenidos por la actividad se declaran en el IRPF (modelo 100 anual y, si procede, pagos fraccionados modelo 130). |
+| Obligación | Norma | Condiciones de aplicación | Estado |
+|:---|:---|:---|:---|
+| Alta en el censo de empresarios, profesionales y retenedores | [Real Decreto 1065/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-15984) | El autónomo o empresario debe darse de alta en Hacienda mediante el modelo 036 antes de iniciar la actividad, indicando el epígrafe del IAE correspondiente (por ejemplo, servicios de informática o agenciación). | `leído` |
+| Declaración y liquidación del IVA | [Ley 37/1992, del Impuesto sobre el Valor Añadido](https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740) | Si se cobra por el uso de la plataforma o por reservas, se deben emitir facturas con IVA y presentar liquidaciones periódicas (modelos 303 y 390). | `leído` |
+| Declaración del IRPF | [Ley 35/2006, del IRPF](https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764) y [Real Decreto 439/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-6820) | Los ingresos obtenidos por la actividad se declaran en el IRPF (modelo 100 anual y, si procede, pagos fraccionados modelo 130). | `leído` |
 
 ### 5.3 Obligaciones laborales y de prevención de riesgos
 
-| Obligación | Norma | Condiciones de aplicación |
-|:---|:---|:---|
-| Prevención de riesgos laborales en el puesto de trabajo | **Ley 31/1995, de Prevención de Riesgos Laborales** | Si el empresario contrata empleados para gestionar la plataforma, debe evaluar los riesgos (incluidos los ergonómicos y psicosociales del trabajo con ordenador), formar a los trabajadores y garantizar un entorno seguro. En el caso de un autónomo sin empleados, esta obligación no se activa directamente, pero es de aplicación si hay asalariados. |
-| Alta en la Seguridad Social | **Real Decreto Legislativo 8/2015 (texto refundido de la Ley General de la Seguridad Social)** | El autónomo debe estar dado de alta en el Régimen Especial de Trabajadores Autónomos (RETA). Si hubiera empleados, se darían de alta en el Régimen General y se pagarían las cotizaciones correspondientes. |
+| Obligación | Norma | Condiciones de aplicación | Estado |
+|:---|:---|:---|:---|
+| Prevención de riesgos laborales en el puesto de trabajo | [Ley 31/1995, de Prevención de Riesgos Laborales](https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292) | Si el empresario contrata empleados para gestionar la plataforma, debe evaluar los riesgos (incluidos los ergonómicos y psicosociales del trabajo con ordenador), formar a los trabajadores y garantizar un entorno seguro. En el caso de un autónomo sin empleados, esta obligación no se activa directamente, pero es de aplicación si hay asalariados. | `leído` |
+| Alta en la Seguridad Social | [Real Decreto Legislativo 8/2015 (LGSS)](https://www.boe.es/buscar/act.php?id=BOE-A-2015-11724) | El autónomo debe estar dado de alta en el Régimen Especial de Trabajadores Autónomos (RETA). Si hubiera empleados, se darían de alta en el Régimen General y se pagarían las cotizaciones correspondientes. | `leído` |
 
 ### 5.4 Consideraciones para este proyecto (encargo simulado)
 
@@ -206,6 +213,7 @@ miCita es un proyecto de digitalización para pequeños negocios, por lo que las
 | **Requisitos** | Ser pyme, microempresa o persona en situación de autoempleo; estar en el censo de empresarios de Hacienda; estar al corriente con Hacienda y Seguridad Social; no ser empresa en crisis; respetar el límite de ayudas de minimis; realizar el test de madurez digital de Acelera pyme. |
 | **Plazo** | Las convocatorias **finalizaron el 31 de octubre de 2025**. A noviembre de 2026 no hay convocatoria abierta; distintas fuentes del sector (por ejemplo, portales de ayudas de Asturias) apuntan a un posible remanente de fondos para el Segmento III, pero no hay un plazo publicado y confirmado, así que se considera cerrado. |
 | **Fuente** | Red.es / Acelera pyme: [acelerapyme.gob.es](https://www.acelerapyme.gob.es) y [kitdigital.red.es](https://www.kitdigital.red.es). Consulta: 2026-11-15. |
+| **Estado de la fuente** | `leído` |
 
 Aunque el programa está cerrado a nuevas solicitudes, se incluye porque es la ayuda de referencia para este tipo de proyecto y porque una futura convocatoria con fondos remanentes podría reabrirla.
 
@@ -213,13 +221,13 @@ Aunque el programa está cerrado a nuevas solicitudes, se incluye porque es la a
 
 Como el proyecto se sitúa en Asturias, las ayudas que realmente puede solicitar un autónomo o una microempresa de la zona son las convocadas por el **Ayuntamiento de Gijón / Gijón Impulsa**, el **Principado de Asturias** y las **cámaras de comercio** de Gijón y Avilés. Son convocatorias anuales de concurrencia competitiva, salvo DIGICOM, que es una subvención nominativa.
 
-| Ayuda | Organismo | Importe | Plazo 2026 | Estado a 2026-11-15 |
-|:---|:---|:---|:---|:---|
-| **Incentivos Impulsa — Subvenciones al Emprendimiento, Innovación y Crecimiento Empresarial** (Línea I Aceleración de Proyectos, Línea II Innovación Abierta, Línea III Crecimiento Empresarial) | Ayuntamiento de Gijón / Gijón Impulsa | 930.000 € en total. Línea I: hasta 6.000 € (personas físicas) y 2.000–3.000 € (autónomos y empresas). Línea II: hasta 34.000 € (75–80 % del presupuesto elegible). Línea III: 80 % hasta 18.000 € | 1.er plazo: 8–27 abr 2026. 2.º plazo: 1–20 sep 2026 | Cerrado (primer plazo resuelto en junio de 2026; segundo plazo cerrado el 20-sep-2026) |
-| **Ayudas para el impulso empresarial de autónomos, microempresas y pymes** (BDNS 900148) | Principado de Asturias — Consejería de Ciencia, Industria y Empleo | 800.000 €. 50 % de la inversión, máximo 10.000 € por beneficiario; inversión mínima 3.000 € | 2–15 jun 2026 (10 días hábiles desde el BOPA de 1-jun-2026) | Cerrado |
-| **Programa Pyme Sostenible 2026** (BDNS 887403) | Cámara de Comercio de Gijón | Hasta 4.494 € por empresa (74.900 € de presupuesto) | Hasta 16-oct-2026 | Cerrado |
-| **Programa Pyme Digital 2026** (BDNS 927280) | Cámara de Comercio de Avilés | Hasta 7.000 € por empresa (44.940 € de presupuesto) | Hasta 16-oct-2026 | Cerrado |
-| **DIGICOM 2026 — Programa de Digitalización del Comercio Local** (BDNS 916451) | Ayuntamiento de Gijón → Unión de Comerciantes del Principado de Asturias | 400.000 € | 1-jul → 31-dic-2026 | Periodo abierto, pero es una **subvención nominativa**: la solicita y ejecuta la Unión de Comerciantes, no el autónomo directamente |
+| Ayuda | Organismo | Importe | Plazo 2026 | Estado a 2026-11-15 | Fuente leída |
+|:---|:---|:---|:---|:---|:---|
+| **Incentivos Impulsa — Subvenciones al Emprendimiento, Innovación y Crecimiento Empresarial** (Línea I Aceleración de Proyectos, Línea II Innovación Abierta, Línea III Crecimiento Empresarial) | Ayuntamiento de Gijón / Gijón Impulsa | 930.000 € en total. Línea I: hasta 6.000 € (personas físicas) y 2.000–3.000 € (autónomos y empresas). Línea II: hasta 34.000 € (75–80 % del presupuesto elegible). Línea III: 80 % hasta 18.000 € | 1.er plazo: 8–27 abr 2026. 2.º plazo: 1–20 sep 2026 | Cerrado (primer plazo resuelto en junio de 2026; segundo plazo cerrado el 20-sep-2026) | `leído` |
+| **Ayudas para el impulso empresarial de autónomos, microempresas y pymes** (BDNS 900148) | Principado de Asturias — Consejería de Ciencia, Industria y Empleo | 800.000 €. 50 % de la inversión, máximo 10.000 € por beneficiario; inversión mínima 3.000 € | 2–15 jun 2026 (10 días hábiles desde el BOPA de 1-jun-2026) | Cerrado | `leído` |
+| **Programa Pyme Sostenible 2026** (BDNS 887403) | Cámara de Comercio de Gijón | Hasta 4.494 € por empresa (74.900 € de presupuesto) | Hasta 16-oct-2026 | Cerrado | `leído` |
+| **Programa Pyme Digital 2026** (BDNS 927280) | Cámara de Comercio de Avilés | Hasta 7.000 € por empresa (44.940 € de presupuesto) | Hasta 16-oct-2026 | Cerrado | `leído` |
+| **DIGICOM 2026 — Programa de Digitalización del Comercio Local** (BDNS 916451) | Ayuntamiento de Gijón → Unión de Comerciantes del Principado de Asturias | 400.000 € | 1-jul → 31-dic-2026 | Periodo abierto, pero es una **subvención nominativa**: la solicita y ejecuta la Unión de Comerciantes, no el autónomo directamente | `leído` |
 
 **Requisitos habituales** (según las bases de cada convocatoria): estar dado de alta en el censo de Hacienda y en el IAE, tener domicilio fiscal o establecimiento permanente en Gijón / Asturias, estar al corriente con Hacienda y la Seguridad Social, acreditar una antigüedad mínima de actividad (el impulso empresarial del Principado exige 2 años y constitución posterior al 1-ene-2019), no haber recibido la misma ayuda en los tres ejercicios anteriores y respetar el límite de *minimis* (Reglamento UE 2023/2831).
 
@@ -239,6 +247,7 @@ Como el proyecto se sitúa en Asturias, las ayudas que realmente puede solicitar
 | **Requisitos** | Ser autónomo o empresa con domicilio en España, viabilidad del proyecto y cumplimiento de los requisitos de cada línea. |
 | **Plazo** | Las condiciones y disponibilidad cambian por línea; conviene consultar directamente en la web del ICO. |
 | **Fuente** | Instituto de Crédito Oficial: [ico.es](https://www.ico.es). Consulta: 2026-11-15. |
+| **Estado de la fuente** | `leído` |
 
 ### 6.4 Conclusión para el proyecto
 
@@ -246,7 +255,7 @@ Para miCita, si se pusiera en marcha como negocio real en Asturias, la vía más
 
 ## 7. Guion de trabajo (CE 1i)
 
-El proyecto lo desarrolla **una sola persona**, con el **tutor** como revisor y aprobador en cada entrega. El guion se organiza en fases encadenadas: cada una empieza cuando la anterior tiene su entregable cerrado, y las fechas se apoyan en las entregas reales del curso (H1 el 26-nov-2026, H2 el 21-ene-2027 y la primera versión mínima antes del 31-mar-2027, según REST-01).
+El proyecto lo desarrolla **una sola persona**, con el **tutor** como revisor y aprobador en cada entrega. El guion se organiza en fases encadenadas: cada una empieza cuando la anterior tiene su entregable cerrado, y las fechas se apoyan en las entregas reales del curso (H1 el 26-nov-2026, H2 el 21-ene-2027, la primera versión mínima antes del 31-mar-2027, según REST-01, y H3 el 7-may-2027).
 
 ### 7.1 Fases y dependencias
 
@@ -254,11 +263,11 @@ El proyecto lo desarrolla **una sola persona**, con el **tutor** como revisor y 
 |:---:|:---|:---|:---|:---|
 | **F0. Arranque y documentación inicial** | 6 → 26 nov 2026 | Definir el proyecto, el problema, el alcance y el estado del arte | `00-documentoInicio.md` aprobado y `01-analisis.md` completo (**H1**) | — |
 | **F1. Análisis del estado del arte** | 26 nov → 15 dic 2026 | Comparar soluciones existentes y justificar las decisiones técnicas | `01b-sota.md` con fuentes y fecha de acceso | F0 (alcance definido) |
-| **F2. Diseño y planificación** | 16 dic 2026 → 21 ene 2027 | Modelo de datos, arquitectura, prototipos de interfaz y planificación | `02-diseno.md`, `03-planificacion.md` y tablero de tareas (**H2**) | F1 (decisiones técnicas) |
+| **F2. Diseño y planificación** | 16 dic 2026 → 21 ene 2027 | Modelo de datos, arquitectura, prototipos de interfaz y planificación | `02-diseno.md`, `03-planificacion.md` (pendiente, se crea en H2) y tablero de tareas (**H2**) | F1 (decisiones técnicas) |
 | **F3. Preparación del entorno** | en paralelo a F1–F2 (nov 2026 → ene 2027) | Instalar y probar el entorno: JDK, Spring Boot, MySQL/PostgreSQL, Git y un despliegue de prueba | Repositorio con proyecto base que arranca, conecta a la base de datos y se despliega | F0 |
 | **F4. Desarrollo de la versión mínima** | 22 ene → 31 mar 2027 | Implementar las 4 funcionalidades imprescindibles (RF-01 a RF-05): calendario configurable, gestión de citas, página pública de reserva y asignación automática entre trabajadores | Versión desplegada y usable con datos de ejemplo | F2 (diseño y modelo de datos) y F3 (entorno) |
-| **F5. Funcionalidades opcionales y pruebas** | 1 abr → 31 may 2027 | Añadir historial de clientes (RF-06) y recordatorios (RF-07); ejecutar las pruebas P-01 a P-06 y la auditoría de accesibilidad (RNF-03) | Registro de pruebas y correcciones aplicadas | F4 (versión mínima estable) |
-| **F6. Cierre, memoria y defensa** | jun 2027 → **H3** | Documentación final, manual de despliegue, memoria y presentación | Documentación definitiva y defensa (**H3**) | F5 |
+| **F5. Funcionalidades opcionales y pruebas** | 1 abr → 30 abr 2027 | Añadir historial de clientes (RF-06) y recordatorios (RF-07); ejecutar las pruebas P-01 a P-13 y la auditoría de accesibilidad (RNF-03) | Registro de pruebas y correcciones aplicadas | F4 (versión mínima estable) |
+| **F6. Cierre, memoria y defensa** | 1 may → 7 may 2027 | Documentación final, manual de despliegue, memoria y presentación | Documentación definitiva y defensa (**H3**) | F5 |
 
 ### 7.2 Hitos
 
@@ -267,8 +276,8 @@ El proyecto lo desarrolla **una sola persona**, con el **tutor** como revisor y 
 | **H1** | 26 nov 2026 | Documento de inicio y análisis (RA1) | Autor | Los 8 apartados del `01-analisis.md` están completos y el tutor los aprueba |
 | **H2** | 21 ene 2027 | Diseño, estado del arte y planificación (RA2 y RA3) | Autor | Modelo de datos y prototipos revisados; cronograma con dependencias y riesgos |
 | **MVP** | 31 mar 2027 | Primera versión mínima funcionando | Autor | Las 4 funcionalidades imprescindibles funcionan sobre la aplicación desplegada (REST-01) |
-| **Pruebas cerradas** | 31 may 2027 | Requisitos verificados | Autor | P-01 a P-06 documentadas; sin errores críticos de accesibilidad |
-| **H3** | Entrega final | Proyecto completo y memoria | Autor | Documentación, código y despliegue entregados y defensa preparada |
+| **Pruebas cerradas** | 30 abr 2027 | Requisitos verificados | Autor | P-01 a P-13 documentadas; sin errores críticos de accesibilidad |
+| **H3** | 7 may 2027 | Proyecto completo y memoria | Autor | Documentación, código y despliegue entregados y defensa preparada |
 
 ### 7.3 Responsabilidades
 
@@ -279,7 +288,7 @@ El proyecto lo desarrolla **una sola persona**, con el **tutor** como revisor y 
 
 ### 7.4 Seguimiento
 
-El trabajo se organiza en el **tablero de GitHub Projects** del repositorio [github.com/jhonatan-albarracin/proyectoDAW](https://github.com/jhonatan-albarracin/proyectoDAW), con columnas *Pendiente → En curso → En revisión → Hecho*. Cada tarea se vincula a la **issue** correspondiente y a su rama, y se cierra mediante *pull request* revisado antes de fusionar en `main`. El detalle del cronograma con sus dependencias y el camino crítico se desarrolla en [`03-planificacion.md`](03-planificacion.md).
+El trabajo se organiza en el **tablero de GitHub Projects** del repositorio [github.com/jhonatan-albarracin/proyectoDAW](https://github.com/jhonatan-albarracin/proyectoDAW), con columnas *Pendiente → En curso → En revisión → Hecho*. Cada tarea se vincula a la **issue** correspondiente y a su rama, y se cierra mediante *pull request* revisado antes de fusionar en `main`. El detalle del cronograma con sus dependencias y el camino crítico se desarrollará en `03-planificacion.md` (pendiente de H2).
 
 ## 8. Glosario
 
